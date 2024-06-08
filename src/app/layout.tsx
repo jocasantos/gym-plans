@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import { neobrutalism } from "@clerk/themes";
+import { ptPT } from "@clerk/localizations";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider
+      localization={ptPT}
       appearance={{
         variables: {
           colorPrimary: "#3260a8",
