@@ -6,7 +6,7 @@ import {
 const isProtectedRoute = createRouteMatcher([
   '/painel(.*)',
   '/perfil(.*)',
-  '/simulaçoes(.*)',
+  '/simulacoes(.*)',
   '/creditos(.*)',
 ]);
 

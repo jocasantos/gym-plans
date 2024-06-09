@@ -12,12 +12,14 @@ const Home = () => {
             {/* <Image src="/logo3.png" alt="logo" fill sizes="100vh" /> */}
           </div>
           <h1 className="z-20 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
-            Queres um plano de treino{" "}
-            <span className="text-blue-600">adequado</span> aos teus objetivos?
+            Queres saber quanta{" "}
+            <span className="text-blue-600">massa muscular</span> podes ganhar
+            no ginásio?
           </h1>
           <p className="mt-6 text-lg max-w-prose text-muted-foreground">
-            Regista-te agora e obtém imediatamente os teus novos treinos! Atinge
-            os teus objetivos de forma mais rápida e eficaz.
+            Regista-te agora e realiza já uma simulação GRÁTIS adequada ao teu
+            corpo para saber quanta massa muscular podes ganhar de forma
+            natural.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Link href="/entrar" className={buttonVariants()}>

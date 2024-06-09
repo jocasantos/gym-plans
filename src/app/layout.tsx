@@ -12,8 +12,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Gym Plans",
-  description: "Gym plans for everyone",
+  title: "Muscle Tracker",
+  description: "Quanta massa muscular podes ganhar?",
 };
 
 export default function RootLayout({
