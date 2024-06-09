@@ -5,6 +5,9 @@ import {
 
 const isProtectedRoute = createRouteMatcher([
   '/painel(.*)',
+  '/perfil(.*)',
+  '/simulaçoes(.*)',
+  '/creditos(.*)',
 ]);
 
 export default clerkMiddleware((auth, req) => {
