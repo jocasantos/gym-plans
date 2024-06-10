@@ -12,8 +12,8 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="flex size-full flex-col gap-4">
-        <Link href="/home" className="sidebar-logo">
-          <Image src="" alt="logo" width={180} height={28} />
+        <Link href="/home" className="sidebar-logo pl-2">
+          <Image src="/1.png" alt="logo" width={180} height={28} />
         </Link>
         <nav className="sidebar-nav">
           <ul className="sidebar-nav_elements">

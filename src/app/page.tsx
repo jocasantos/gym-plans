@@ -3,6 +3,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";
 import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react";
+import Image from "next/image";
 
 const perks = [
   {
@@ -30,8 +31,8 @@ const Home = () => {
     <>
       <MaxWidthWrapper>
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-          <div className="h-28 w-36 relative mb-2">
-            {/* <Image src="/logo3.png" alt="logo" fill sizes="100vh" /> */}
+          <div className="h-28 w-96 relative mb-10">
+            <Image src="/1.png" alt="logo" fill />
           </div>
           <h1 className="z-20 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
             Queres saber quanta{" "}
@@ -39,11 +40,10 @@ const Home = () => {
             no ginásio?
           </h1>
           <p className="mt-6 text-sm max-w-prose text-muted-foreground sm:text-lg">
-            Regista-te agora e realiza já uma simulação GRÁTIS adequada ao teu
-            corpo para saber quanta massa muscular podes ganhar de forma
-            natural.
+            Regista-te agora e realiza uma simulação personalizada para saber
+            quanta massa muscular podes ganhar naturalmente.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <div className="flex flex-col sm:flex-row gap-4 pt-16">
             <Link href="/entrar" className={buttonVariants()}>
               Entrar
             </Link>
