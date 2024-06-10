@@ -1,0 +1,54 @@
+"use client";
+
+import { navLinks } from "@/app/constants";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import React from "react";
+
+const Sidebar = () => {
+  const pathname = usePathname();
+
+  return (
+    <aside className="sidebar">
+      <div className="flex size-full flex-col gap-4">
+        <Link href="/home" className="sidebar-logo">
+          <Image src="" alt="logo" width={180} height={28} />
+        </Link>
+        <nav className="sidebar-nav">
+          <ul className="sidebar-nav_elements">
+            {navLinks.map((link) => {
+              const isActive = link.route === pathname;
+
+              return (
+                <li
+                  key={link.route}
+                  className={`sidebar-nav_element group ${
+                    isActive ? "bg-neutral-800 text-white" : "text-neutral-900"
+                  }`}
+                >
+                  <Link className="sidebar-link" href={link.route}>
+                    <Image
+                      src={
+                        isActive
+                          ? link.icon2 ?? "/default-icon2.png"
+                          : link.icon ?? "/default-icon.png"
+                      }
+                      alt="logo"
+                      width={24}
+                      height={24}
+                      className={`${isActive && "brightness-200"}`}
+                    />
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;
