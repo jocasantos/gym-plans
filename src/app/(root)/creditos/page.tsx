@@ -5,8 +5,6 @@ const CreditsPage = () => {
   return (
     <div>
       <p>CreditsPage</p>
-
-      <UserButton afterSignOutUrl="/" />
     </div>
   );
 };

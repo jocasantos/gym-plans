@@ -5,8 +5,6 @@ const ProfilPage = () => {
   return (
     <div>
       <p>ProfilPage</p>
-
-      <UserButton afterSignOutUrl="/" />
     </div>
   );
 };

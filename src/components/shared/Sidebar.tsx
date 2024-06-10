@@ -1,6 +1,7 @@
 "use client";
 
 import { navLinks } from "@/app/constants";
+import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -17,7 +18,7 @@ const Sidebar = () => {
         </Link>
         <nav className="sidebar-nav">
           <ul className="sidebar-nav_elements">
-            {navLinks.map((link) => {
+            {navLinks.slice(0, 4).map((link) => {
               const isActive = link.route === pathname;
 
               return (
@@ -44,6 +45,38 @@ const Sidebar = () => {
                 </li>
               );
             })}
+          </ul>
+          <ul className="sidebar-nav_elements">
+            {navLinks.slice(4).map((link) => {
+              const isActive = link.route === pathname;
+
+              return (
+                <li
+                  key={link.route}
+                  className={`sidebar-nav_element group ${
+                    isActive ? "bg-neutral-800 text-white" : "text-neutral-900"
+                  }`}
+                >
+                  <Link className="sidebar-link" href={link.route}>
+                    <Image
+                      src={
+                        isActive
+                          ? link.icon2 ?? "/default-icon2.png"
+                          : link.icon ?? "/default-icon.png"
+                      }
+                      alt="logo"
+                      width={24}
+                      height={24}
+                      className={`${isActive && "brightness-200"}`}
+                    />
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+            <li className="flex-center cursor-pointer gap-2 px-2 py-4">
+              <UserButton afterSignOutUrl="/" showName />
+            </li>
           </ul>
         </nav>
       </div>
