@@ -1,11 +1,17 @@
-import { UserButton } from "@clerk/nextjs";
-import React from "react";
+import { pageHeader } from "@/app/constants";
+import Header from "@/components/shared/Header";
+import MuscleForm from "@/components/shared/MuscleForm";
 
 const SimulationsPage = () => {
   return (
-    <div>
-      <p>SimulationsPage</p>
-    </div>
+    <>
+      <Header
+        title={pageHeader.simulações.title}
+        subtitle={pageHeader.simulações.subTitle}
+      />
+
+      <MuscleForm />
+    </>
   );
 };
 
