@@ -9,8 +9,6 @@ const SimulationsPage = () => {
         title={pageHeader.simulações.title}
         subtitle={pageHeader.simulações.subTitle}
       />
-
-      <MuscleForm />
     </>
   );
 };
