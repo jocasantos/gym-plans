@@ -127,7 +127,7 @@ const MuscleForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Submeter</Button>
       </form>
     </Form>
   );
