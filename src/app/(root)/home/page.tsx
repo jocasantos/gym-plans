@@ -1,9 +1,20 @@
+"use client";
+
 import { pageHeader } from "@/app/constants";
 import Header from "@/components/shared/Header";
 import MuscleForm from "@/components/shared/MuscleForm";
-import React from "react";
+import ShowPage from "@/components/shared/ShowPage";
+import React, { useState } from "react";
 
 const DashboardPage = () => {
+  // State to control whether to show the form or the ShowPage component
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Callback function to be called after form submission
+  const handleFormSubmit = () => {
+    setIsSubmitted(true); // Update state to show the ShowPage component
+  };
+
   return (
     <>
       <Header
@@ -11,7 +22,11 @@ const DashboardPage = () => {
         subtitle={pageHeader.home.subTitle}
       />
       <div className="mb-8" />
-      <MuscleForm />
+      {!isSubmitted ? (
+        <MuscleForm onSubmit={handleFormSubmit} /> // Pass the callback to MuscleForm
+      ) : (
+        <ShowPage /> // Show this component after form submission
+      )}
     </>
   );
 };

@@ -26,7 +26,7 @@ const ShowPage = () => {
               <Progress value={25} aria-label="25% increase" />
             </CardFooter>
           </Card>
-          <div className="grid items-center justify-center w-[275px] h-[250px] bg-neutral-950 rounded-lg border shadow-sm">
+          <div className="grid items-center justify-center w-[248px] h-[225px] bg-neutral-950 rounded-lg border shadow-sm">
             <Card className="w-[193px] h-[180px] dark border-neutral-950">
               <CardHeader className="pb-2">
                 <CardDescription>Average</CardDescription>

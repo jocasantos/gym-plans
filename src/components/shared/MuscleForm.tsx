@@ -51,18 +51,16 @@ const formSchema = z.object({
     }),
 });
 
-const MuscleForm = () => {
+// 1. Define an interface for the MuscleForm props
+interface MuscleFormProps {
+  onSubmit: (values: z.infer<typeof formSchema>) => void; // Define the type of the onSubmit prop
+}
+
+const MuscleForm: React.FC<MuscleFormProps> = ({ onSubmit }) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
-
-  // 2. Define a submit handler.
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log("Form Submitted", values);
-  }
 
   return (
     <Form {...form}>
