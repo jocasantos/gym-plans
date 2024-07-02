@@ -17,10 +17,18 @@ const DashboardPage = () => {
 
   return (
     <>
-      <Header
-        title={pageHeader.home.title}
-        subtitle={pageHeader.home.subTitle}
-      />
+      {!isSubmitted ? (
+        <Header
+          title={pageHeader.home.title}
+          subtitle={pageHeader.home.subTitle}
+        />
+      ) : (
+        <Header
+          title={pageHeader.homeSubmit.title}
+          subtitle={pageHeader.homeSubmit.subTitle}
+        />
+      )}
+
       <div className="mb-8" />
       {!isSubmitted ? (
         <MuscleForm onSubmit={handleFormSubmit} /> // Pass the callback to MuscleForm
