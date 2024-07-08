@@ -23,33 +23,38 @@ import {
 } from "@/components/ui/select";
 import { Input } from "../ui/input";
 
-const formSchema = z.object({
-  genero: z.string({
-    required_error: "Escolha uma opção.",
-  }),
-  idade: z.coerce
-    .number({
-      required_error: "Insira a sua idade.",
-      invalid_type_error: "Insira a sua idade.",
-    })
-    .int({
-      message: "A idade deve ser um número inteiro.",
-    })
-    .min(13, {
-      message: "A idade deve ser maior que 12.",
+const formSchema = z
+  .object({
+    genero: z.string({
+      required_error: "Escolha uma opção.",
     }),
-  start_age: z.coerce
-    .number({
-      required_error: "Insira a idade.",
-      invalid_type_error: "Insira a idade.",
-    })
-    .int({
-      message: "A idade deve ser um número inteiro.",
-    })
-    .min(13, {
-      message: "A idade deve ser maior que 12.",
-    }),
-});
+    idade: z.coerce
+      .number({
+        required_error: "Insira a sua idade.",
+        invalid_type_error: "Insira a sua idade.",
+      })
+      .int({
+        message: "A idade deve ser um número inteiro.",
+      })
+      .min(13, {
+        message: "A idade deve ser maior que 12.",
+      }),
+    start_age: z.coerce
+      .number({
+        required_error: "Insira a idade.",
+        invalid_type_error: "Insira a idade.",
+      })
+      .int({
+        message: "A idade deve ser um número inteiro.",
+      })
+      .min(13, {
+        message: "A idade deve ser maior que 12.",
+      }),
+  })
+  .refine((data) => data.start_age <= data.idade, {
+    message: "A idade de início deve ser menor ou igual à idade atual.",
+    path: ["start_age"], // This specifies which field the error is associated with
+  });
 
 // 1. Define an interface for the MuscleForm props
 interface MuscleFormProps {
