@@ -17,6 +17,7 @@ const SimulationsPage = () => {
         title={pageHeader.simulações.title}
         subtitle={pageHeader.simulações.subTitle}
       />
+      <div className="mb-8" />
       <Table>
         <TableCaption>Lista das simulações realizadas.</TableCaption>
         <TableHeader>

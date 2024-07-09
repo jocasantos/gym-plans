@@ -39,6 +39,17 @@ const formSchema = z
       .min(13, {
         message: "A idade deve ser maior que 12.",
       }),
+    altura: z.coerce
+      .number({
+        required_error: "Insira a sua altura.",
+        invalid_type_error: "Insira a sua altura.",
+      })
+      .int({
+        message: "A altura deve ser um número inteiro.",
+      })
+      .min(100, {
+        message: "A altura deve ser maior que 100 cm.",
+      }),
     start_age: z.coerce
       .number({
         required_error: "Insira a idade.",
@@ -106,6 +117,25 @@ const MuscleForm: React.FC<MuscleFormProps> = ({ onSubmit }) => {
                   <SelectItem value="feminino">Feminino</SelectItem>
                 </SelectContent>
               </Select>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="altura"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Altura (cm)</FormLabel>
+              <FormControl>
+                <Input
+                  type="number"
+                  placeholder="ex: 180 cm"
+                  {...field}
+                  value={field.value ?? ""}
+                  onChange={(event) => field.onChange(+event.target.value)}
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}

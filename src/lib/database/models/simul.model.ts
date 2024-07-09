@@ -6,7 +6,6 @@ export interface ISimul extends Document {
     secureURL: URL;
     age: number;
     genre: string;
-    weight: number;
     height: number;
     start_year: number;
     author: {
