@@ -2,7 +2,6 @@ import { Schema, model, models } from "mongoose";
 
 //create a interface for the model
 export interface ISimul extends Document {
-    publicID: string;
     secureURL: URL;
     age: number;
     genre: string;

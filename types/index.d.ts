@@ -18,7 +18,6 @@ declare type CreateUserParams = {
   // ====== SIMULATION PARAMS
   declare type AddSimulParams = {
     simul: {
-      publicId: string;
       secureURL: string;
       age: number;
       genre: string;
@@ -33,7 +32,6 @@ declare type CreateUserParams = {
   declare type UpdateSimulParams = {
     simul: {
       _id: string;
-      publicId: string;
       secureURL: string;
       age: number;
       genre: string;
