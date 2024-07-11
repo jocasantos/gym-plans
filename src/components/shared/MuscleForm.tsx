@@ -49,6 +49,9 @@ const formSchema = z
       })
       .min(100, {
         message: "A altura deve ser maior que 100 cm.",
+      })
+      .max(220, {
+        message: "A altura deve ser menor que 220 cm.",
       }),
     start_age: z.coerce
       .number({
@@ -72,11 +75,18 @@ interface MuscleFormProps {
   onSubmit: (values: z.infer<typeof formSchema>) => void; // Define the type of the onSubmit prop
 }
 
-const MuscleForm: React.FC<MuscleFormProps> = ({ onSubmit }) => {
+const MuscleForm = () => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
 
   return (
     <Form {...form}>
