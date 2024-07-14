@@ -18,6 +18,6 @@ const UserSchema = new Schema({
     creditBalance: {type: Number, default: 0},
 })
 
-const User = models?.Simul || model('User', UserSchema);
+const User = models?.User || model('User', UserSchema);
 
 export default User;

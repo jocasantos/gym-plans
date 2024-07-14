@@ -1,26 +1,21 @@
-"use client";
-
 import { pageHeader } from "@/app/constants";
 import Header from "@/components/shared/Header";
-import MuscleForm, { MuscleFormProps } from "@/components/shared/MuscleForm";
+import MuscleForm from "@/components/shared/MuscleForm";
 import ShowPage from "@/components/shared/ShowPage";
-import React, { useState } from "react";
+import { getUserById } from "@/lib/actions/user.actions";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
-const DashboardPage = () => {
-  // State to control whether to show the form or the ShowPage component
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState(null);
+const DashboardPage = async () => {
+  const { userId } = auth();
 
-  // Callback function to be called after form submission
-  const handleFormSubmit = (values: any) => {
-    console.log("Form Submitted", values);
-    setFormData(values);
-    setIsSubmitted(true); // Update state to show the ShowPage component
-  };
+  if (!userId) redirect("/");
+
+  const user = await getUserById(userId);
 
   return (
     <>
-      {!isSubmitted ? (
+      {true ? (
         <Header
           title={pageHeader.home.title}
           subtitle={pageHeader.home.subTitle}
@@ -33,8 +28,8 @@ const DashboardPage = () => {
       )}
 
       <div className="mb-8" />
-      {!isSubmitted ? (
-        <MuscleForm onSubmit={handleFormSubmit} /> // Pass the callback to MuscleForm
+      {true ? (
+        <MuscleForm userId={user._id} creditBalance={user.creditBalance} />
       ) : (
         <ShowPage /> // Show this component after form submission
       )}

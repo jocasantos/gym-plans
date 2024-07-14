@@ -59,3 +59,10 @@ declare type CreateUserParams = {
     buyerId: string;
     createdAt: Date;
   };
+
+  // ====== MUSCLEFORM PARAMS
+  declare type MuscleFormProps = {
+    userId: string;
+    creditBalance: number;
+    data?: Simul | null;
+  };

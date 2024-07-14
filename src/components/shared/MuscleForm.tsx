@@ -70,16 +70,16 @@ const formSchema = z
     path: ["start_age"], // This specifies which field the error is associated with
   });
 
-// 1. Define an interface for the MuscleForm props
-export interface MuscleFormProps {
-  onSubmit: (values: z.infer<typeof formSchema>) => void; // Define the type of the onSubmit prop
-}
-
-const MuscleForm: React.FC<MuscleFormProps> = ({ onSubmit }) => {
+const MuscleForm = ({ userId, creditBalance }: MuscleFormProps) => {
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+
+  // 2. Define a submit handler.
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log("Form Submitted", values);
+  }
 
   return (
     <Form {...form}>
