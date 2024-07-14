@@ -2,11 +2,10 @@ import { Schema, model, models } from "mongoose";
 
 //create a interface for the model
 export interface ISimul extends Document {
-    secureURL: URL;
     age: number;
     genre: string;
     height: number;
-    start_year: number;
+    start_age: number;
     author: {
         _id: string;
         firstName: string;
@@ -17,13 +16,10 @@ export interface ISimul extends Document {
 }
 
 const SimulSchema = new Schema({
-    publicID: {type: String, required: true},
-    secureURL: {type: URL, required: true},
     age: {type: Number, required: true},
     genre: {type: String, required: true},
-    weight: {type: Number, required: true},
     height: {type: Number, required: true},
-    start_year: {type: Number, required: true},
+    start_age: {type: Number, required: true},
     author: {type: Schema.Types.ObjectId, ref: 'User'},
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},

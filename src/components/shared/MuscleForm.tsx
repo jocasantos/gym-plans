@@ -22,6 +22,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "../ui/input";
+import { useState } from "react";
+import { addSimul } from "@/lib/actions/simul.actions";
 
 const formSchema = z
   .object({
@@ -71,6 +73,8 @@ const formSchema = z
   });
 
 const MuscleForm = ({ userId, creditBalance }: MuscleFormProps) => {
+  const [simul, setSimul] = useState(null);
+
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -79,7 +83,34 @@ const MuscleForm = ({ userId, creditBalance }: MuscleFormProps) => {
   // 2. Define a submit handler.
   async function onSubmit(values: z.infer<typeof formSchema>) {
     console.log("Form Submitted", values);
+
+    const simulData = {
+      height: values.altura,
+      age: values.idade,
+      genre: values.genero,
+      start_age: values.start_age,
+    };
+
+    try {
+      const newSimul = await addSimul({
+        simul: simulData,
+        userId,
+        path: "/",
+      });
+
+      if (newSimul) {
+        form.reset();
+        setSimul(newSimul);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
+
+  /*   startTransition(async () => {
+    await updateCredits(userId, creditFee)
+  })
+} */
 
   return (
     <Form {...form}>
