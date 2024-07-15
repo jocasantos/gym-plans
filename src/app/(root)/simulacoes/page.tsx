@@ -1,3 +1,5 @@
+"use client";
+
 import { pageHeader } from "@/app/constants";
 import Header from "@/components/shared/Header";
 import {
@@ -9,8 +11,40 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { getSimulationsForUser } from "@/lib/actions/simul.actions";
+import { ISimul } from "@/lib/database/models/simul.model";
+import React, { useEffect, useState } from "react";
 
-const SimulationsPage = () => {
+// Define the type for the component props
+interface SimulationsPageProps {
+  userId: string;
+}
+
+// Define the type for the simulation data
+interface Simulation {
+  _id: string;
+  data: ISimul;
+
+  // Add other relevant fields here
+}
+
+const SimulationsPage: React.FC<SimulationsPageProps> = ({ userId }) => {
+  const [simulations, setSimulations] = useState<Simulation[]>([]);
+
+  useEffect(() => {
+    const fetchSimulations = async () => {
+      try {
+        const data = await getSimulationsForUser(userId);
+        setSimulations(data);
+        console.log("Simulations:", data);
+      } catch (error) {
+        console.error("Error fetching simulations:", error);
+      }
+    };
+
+    fetchSimulations();
+  }, [userId]);
+
   return (
     <>
       <Header
@@ -30,13 +64,17 @@ const SimulationsPage = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          <TableRow>
-            <TableCell className="font-medium">01-01-24</TableCell>
-            <TableCell className="justify-center">20</TableCell>
-            <TableCell>M</TableCell>
-            <TableCell>17</TableCell>
-            <TableCell className="text-right">PDF</TableCell>
-          </TableRow>
+          {simulations.map((simulation) => (
+            <TableRow key={simulation.id}>
+              <TableCell className="font-medium">{simulation.date}</TableCell>
+              <TableCell className="justify-center">{simulation.age}</TableCell>
+              <TableCell>{simulation.gender}</TableCell>
+              <TableCell>{simulation.startAge}</TableCell>
+              <TableCell className="text-right">
+                <a href={simulation.downloadLink}>PDF</a>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </>

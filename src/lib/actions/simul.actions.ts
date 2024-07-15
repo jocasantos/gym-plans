@@ -69,11 +69,11 @@ UpdateSimulParams) {
 }
 
 // DELETE SIMUL
-export async function deleteSimul(imageId: string) {
+export async function deleteSimul(simul_id: string) {
     try {
         await connectToDatabase();
 
-        await Simul.findByIdAndDelete(imageId);
+        await Simul.findByIdAndDelete(simul_id);
         
     } catch (error) {
         handleError(error);
@@ -83,11 +83,11 @@ export async function deleteSimul(imageId: string) {
 }
 
 // GET SIMUL
-export async function getSimulById(imageId: string) {
+export async function getSimulById(simul_id: string) {
     try {
         await connectToDatabase();
 
-        const simul = await populateUser(Simul.findById(imageId));
+        const simul = await populateUser(Simul.findById(simul_id));
 
         if (!simul) {
             throw new Error("Simulation not found");
@@ -97,5 +97,22 @@ export async function getSimulById(imageId: string) {
         
     } catch (error) {
         handleError(error);
+    }
+}
+
+// GET SIMULATIONS FOR USER
+export async function getSimulationsForUser(userId: string) {
+    try {
+        await connectToDatabase();
+
+        const simulations = await Simul.find({ author: userId }).populate({
+            path: "author",
+            model: User,
+            select: "_id firstName lastName",
+        });
+        return simulations;
+    } catch (error) {
+        console.error('Error fetching simulations:', error);
+        throw error;
     }
 }
