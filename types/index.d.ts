@@ -39,7 +39,14 @@ declare type CreateUserParams = {
     userId: string;
     path: string;
   };
-  
+
+  declare type AuthorParams = {
+author: {
+  _id: string;
+  firstName: string;
+  lastName: string;
+};
+};  
   
   // ====== TRANSACTION PARAMS
   declare type CheckoutTransactionParams = {

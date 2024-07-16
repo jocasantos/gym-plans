@@ -6,8 +6,6 @@ import { handleError } from "../utils"
 import User from "../database/models/user.model";
 import Simul from "../database/models/simul.model";
 import { redirect } from "next/navigation";
-import path from "path";
-import { model } from "mongoose";
 
 const populateUser = (query: any) => query.populate({
     path: "author",
@@ -100,19 +98,19 @@ export async function getSimulById(simul_id: string) {
     }
 }
 
-// GET SIMULATIONS FOR USER
-export async function getSimulationsForUser(userId: string) {
+
+// GET ALL SIMULATIONS
+export async function getAllSimulations() {
     try {
         await connectToDatabase();
 
-        const simulations = await Simul.find({ author: userId }).populate({
-            path: "author",
-            model: User,
-            select: "_id firstName lastName",
-        });
-        return simulations;
+        const simulations = await populateUser(Simul.find())
+        .sort({ createdAt: -1 });
+
+        
+
+        return JSON.parse(JSON.stringify(simulations));
     } catch (error) {
-        console.error('Error fetching simulations:', error);
-        throw error;
+        handleError(error);
     }
 }
