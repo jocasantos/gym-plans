@@ -11,23 +11,23 @@ import {
 
 // Define the type for the simulation data
 interface Simulation {
+  _id: string;
+  age: number;
+  genre: string;
+  height: number;
+  start_age: number;
+  author: {
     _id: string;
-    age: number;
-    genre: string;
-    height: number;
-    start_age: number;
-    author: {
-      _id: string;
-      firstName: string;
-      lastName: string;
-    };
-    createdAt?: Date;
-    updatedAt?: Date;
-  }
+    firstName: string;
+    lastName: string;
+  };
+  createdAt?: Date;
+  updatedAt?: Date;
+}
 
 // Define the type for the simulation data
 interface SimulsTableProps {
-    simulations: Simulation[];
+  simulations: Simulation[];
 }
 
 const SimulsTable = ({ simulations }: SimulsTableProps) => {
@@ -36,10 +36,10 @@ const SimulsTable = ({ simulations }: SimulsTableProps) => {
       <TableCaption>Lista das simulações realizadas.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Data</TableHead>
-          <TableHead>Idade</TableHead>
-          <TableHead>Género</TableHead>
-          <TableHead>Idade_inicio</TableHead>
+          <TableHead className="w-[120px]">Data</TableHead>
+          <TableHead className="text-center">Idade</TableHead>
+          <TableHead className="text-center">Género</TableHead>
+          <TableHead className="text-center">Idade_inicio</TableHead>
           <TableHead className="text-right">Download</TableHead>
         </TableRow>
       </TableHeader>
@@ -47,11 +47,13 @@ const SimulsTable = ({ simulations }: SimulsTableProps) => {
         {simulations.map((simulation) => (
           <TableRow key={simulation._id}>
             <TableCell className="font-medium">
-              {simulation.createdAt?.toString()}
+              {simulation.createdAt?.toString().slice(0, 10)}
             </TableCell>
-            <TableCell className="justify-center">{simulation.age}</TableCell>
-            <TableCell>{simulation.genre}</TableCell>
-            <TableCell>{simulation.start_age}</TableCell>
+            <TableCell className="text-center">{simulation.age}</TableCell>
+            <TableCell className="text-center">{simulation.genre}</TableCell>
+            <TableCell className="text-center">
+              {simulation.start_age}
+            </TableCell>
             <TableCell className="text-right">
               <a href={"/"}>PDF</a>
             </TableCell>

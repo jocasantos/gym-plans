@@ -16,7 +16,7 @@ const ShowPage = () => {
         <div className="flex-col items-center space-y-6 flex">
           <Card className="">
             <CardHeader className="pb-2">
-              <CardDescription>At Least</CardDescription>
+              <CardDescription>Pelo menos</CardDescription>
               <CardTitle className="text-4xl">15-16 Kg</CardTitle>
             </CardHeader>
             <CardContent>
@@ -29,7 +29,7 @@ const ShowPage = () => {
           <div className="grid items-center justify-center w-[248px] h-[225px] bg-neutral-950 rounded-lg border shadow-sm">
             <Card className="w-[193px] h-[180px] dark border-neutral-950">
               <CardHeader className="pb-2">
-                <CardDescription>Average</CardDescription>
+                <CardDescription>Em média</CardDescription>
                 <CardTitle className="text-4xl">17-18 Kg</CardTitle>
               </CardHeader>
               <CardContent>
@@ -44,7 +44,7 @@ const ShowPage = () => {
           </div>
           <Card className="">
             <CardHeader className="pb-2">
-              <CardDescription>Maximum</CardDescription>
+              <CardDescription>No máximo</CardDescription>
               <CardTitle className="text-4xl">19-20 Kg</CardTitle>
             </CardHeader>
             <CardContent>
