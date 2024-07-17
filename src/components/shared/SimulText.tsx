@@ -10,14 +10,14 @@ import {
 
 const SimulText = () => {
   return (
-    <Card className="max-w-96 text-justify">
+    <Card className="max-w-96 min-w-72 text-justify">
       <CardHeader>
         <CardTitle>Importância do Treino</CardTitle>
         <CardDescription>
           Ganhar massa muscular é um processo que exige dedicação, consistência
-          e um planeamento adequado. Para atingir 90% dos valores apresentados,
-          são necessários pelo menos 5 anos de treino de hipertrofia bem
-          planeados.
+          e um planeamento adequado. Para atingir <b>90%</b> dos valores
+          apresentados, são necessários pelo menos <b>5 anos</b> de treino de
+          hipertrofia bem planeados.
         </CardDescription>
       </CardHeader>
       <CardContent className="grid gap-4">

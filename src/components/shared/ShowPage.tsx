@@ -12,7 +12,7 @@ import { Progress } from "../ui/progress";
 const ShowPage = () => {
   return (
     <>
-      <div className="flex items-center justify-center">
+      <div className="flex">
         <div className="flex-col items-center space-y-6 flex">
           <Card className="">
             <CardHeader className="pb-2">
