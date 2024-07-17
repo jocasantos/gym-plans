@@ -1,9 +1,14 @@
 import ShowPage from "@/components/shared/ShowPage";
-import { UserButton } from "@clerk/nextjs";
+import SimulText from "@/components/shared/SimulText";
 import React from "react";
 
 const ProfilPage = () => {
-  return <ShowPage />;
+  return (
+    <div className="flex gap-4">
+      <ShowPage />
+      <SimulText />
+    </div>
+  );
 };
 
 export default ProfilPage;
