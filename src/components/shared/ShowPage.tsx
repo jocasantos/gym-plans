@@ -8,6 +8,7 @@ import {
   CardFooter,
 } from "../ui/card";
 import { Progress } from "../ui/progress";
+import { getMuscleMass } from "@/lib/utils";
 
 const ShowPage = () => {
   return (
