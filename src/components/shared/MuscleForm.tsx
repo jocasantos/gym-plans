@@ -24,6 +24,7 @@ import {
 import { Input } from "../ui/input";
 import { useState } from "react";
 import { addSimul } from "@/lib/actions/simul.actions";
+import { useRouter } from "next/dist/client/components/navigation";
 
 const formSchema = z
   .object({
@@ -74,6 +75,7 @@ const formSchema = z
 
 const MuscleForm = ({ userId, creditBalance }: MuscleFormProps) => {
   const [simul, setSimul] = useState(null);
+  const router = useRouter();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -101,6 +103,7 @@ const MuscleForm = ({ userId, creditBalance }: MuscleFormProps) => {
       if (newSimul) {
         form.reset();
         setSimul(newSimul);
+        router.push(`/simulacoes/${newSimul._id}`);
       }
     } catch (error) {
       console.error(error);

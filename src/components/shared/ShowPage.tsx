@@ -11,17 +11,30 @@ import { Progress } from "../ui/progress";
 import { getMuscleMass } from "@/lib/utils";
 import { muscleMassTable } from "@/app/constants";
 
-const ShowPage = () => {
-  const test = {
-    height: 220,
-    age_start: 15,
-    genre: "masculino",
+interface ShowPageProps {
+  simul: {
+    _id: string;
+    age: number;
+    genre: string;
+    height: number;
+    start_age: number;
+    author: string;
+    createdAt?: Date;
+    updatedAt?: Date;
+  };
+}
+
+const ShowPage = ({ simul }: ShowPageProps) => {
+  const simulation = {
+    height: simul.height,
+    age_start: simul.start_age,
+    genre: simul.genre,
   };
 
-  const muscleMassLevel = getMuscleMass(test);
+  const muscleMassLevel = getMuscleMass(simulation);
   const muscleMassLevelBefore = muscleMassLevel - 1;
   const muscleMassLevelAfter = muscleMassLevel + 1;
-  const genre = test.genre;
+  const genre = simulation.genre;
 
   return (
     <>
