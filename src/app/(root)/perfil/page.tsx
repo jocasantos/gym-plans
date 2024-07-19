@@ -14,7 +14,6 @@ const ProfilPage = () => {
     <div className="flex-col flex gap-8 items-center lg:flex lg:flex-row">
       <ShowPage />
       <SimulText />
-      <p>{getMuscleMass(test)}</p>
     </div>
   );
 };

@@ -10,29 +10,30 @@ import {
 import { Progress } from "../ui/progress";
 import { getMuscleMass } from "@/lib/utils";
 import { muscleMassTable } from "@/app/constants";
-import { getMuscleMassProps } from "@/lib/utils";
 
 const ShowPage = () => {
   const test = {
-    height: 200,
-    age_start: 14,
-    genre: "feminino",
+    height: 220,
+    age_start: 15,
+    genre: "masculino",
   };
 
   const muscleMassLevel = getMuscleMass(test);
+  const muscleMassLevelBefore = muscleMassLevel - 1;
+  const muscleMassLevelAfter = muscleMassLevel + 1;
   const genre = test.genre;
 
   return (
     <>
       <div className="flex">
         <div className="flex-col items-center space-y-6 flex">
-          <Card className="">
+          <Card className="w-[204px]">
             <CardHeader className="pb-2">
               <CardDescription>Pelo menos</CardDescription>
               <CardTitle className="text-4xl">
                 {genre == "masculino"
-                  ? muscleMassTable.masculino[muscleMassLevel]
-                  : muscleMassTable.feminino[muscleMassLevel]}
+                  ? muscleMassTable.masculino[muscleMassLevelBefore]
+                  : muscleMassTable.feminino[muscleMassLevelBefore]}
               </CardTitle>
             </CardHeader>
             <CardContent>
@@ -46,7 +47,11 @@ const ShowPage = () => {
             <Card className="w-[193px] h-[180px] dark border-neutral-950">
               <CardHeader className="pb-2">
                 <CardDescription>Em média</CardDescription>
-                <CardTitle className="text-4xl">17-18 Kg</CardTitle>
+                <CardTitle className="text-4xl">
+                  {genre == "masculino"
+                    ? muscleMassTable.masculino[muscleMassLevel]
+                    : muscleMassTable.feminino[muscleMassLevel]}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-xs text-muted-foreground">
@@ -58,10 +63,14 @@ const ShowPage = () => {
               </CardFooter>
             </Card>
           </div>
-          <Card className="">
+          <Card className="w-[204px]">
             <CardHeader className="pb-2">
               <CardDescription>No máximo</CardDescription>
-              <CardTitle className="text-4xl">19-20 Kg</CardTitle>
+              <CardTitle className="text-4xl">
+                {genre == "masculino"
+                  ? muscleMassTable.masculino[muscleMassLevelAfter]
+                  : muscleMassTable.feminino[muscleMassLevelAfter]}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xs text-muted-foreground">Good genetics</div>

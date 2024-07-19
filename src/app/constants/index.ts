@@ -46,7 +46,11 @@ export const navLinks = [
 
   }
 
-  export const muscleMassTable = {
+  interface MuscleMassTable {
+    [key: number]: string;
+  }
+
+  export const muscleMassTable: { masculino: MuscleMassTable, feminino: MuscleMassTable  } = {
     masculino: {
       0: "8 Kg",
       1: "9-10 Kg",
