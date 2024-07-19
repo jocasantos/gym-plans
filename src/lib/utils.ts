@@ -32,6 +32,7 @@ interface getMuscleMassProps {
 // FUNCTION TO GET THE MUSCLE MASS
 export const getMuscleMass = ({height, age_start, genre}: getMuscleMassProps) => {
   function heightScore (height: number, genre: string) {
+    
     if (genre === "masculino") {
       if (height < 160) {
         return 1;
@@ -93,8 +94,19 @@ export const getMuscleMass = ({height, age_start, genre}: getMuscleMassProps) =>
         return 1;
   }
 
-  const muscleMass = (0.7 * heightScore(height, genre)) + (0.3 * age_start);
-  console.log(muscleMass);
-  
-  return muscleMass;
+  const muscleMass = (0.7 * heightScore(height, genre)) + (0.3 * ageScore(age_start,  genre));
+ 
+  if (muscleMass < 2) {
+    return 1;
+  } else if (muscleMass >= 2 && muscleMass < 3) {
+    return 2;
+  }
+  else if (muscleMass >= 3 && muscleMass < 4) {
+    return 3;
+  }
+  else if (muscleMass >= 4 && muscleMass < 5) {
+    return 4;
+  }
+
+  return 5;
 }

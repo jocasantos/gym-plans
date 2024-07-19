@@ -5,9 +5,9 @@ import React from "react";
 
 const ProfilPage = () => {
   const test = {
-    height: 160,
-    age_start: 17,
-    genre: "masculino",
+    height: 200,
+    age_start: 14,
+    genre: "feminino",
   };
 
   return (
