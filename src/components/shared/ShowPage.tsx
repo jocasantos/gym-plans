@@ -9,8 +9,19 @@ import {
 } from "../ui/card";
 import { Progress } from "../ui/progress";
 import { getMuscleMass } from "@/lib/utils";
+import { muscleMassTable } from "@/app/constants";
+import { getMuscleMassProps } from "@/lib/utils";
 
 const ShowPage = () => {
+  const test = {
+    height: 200,
+    age_start: 14,
+    genre: "feminino",
+  };
+
+  const muscleMassLevel = getMuscleMass(test);
+  const genre = test.genre;
+
   return (
     <>
       <div className="flex">
@@ -18,7 +29,11 @@ const ShowPage = () => {
           <Card className="">
             <CardHeader className="pb-2">
               <CardDescription>Pelo menos</CardDescription>
-              <CardTitle className="text-4xl">15-16 Kg</CardTitle>
+              <CardTitle className="text-4xl">
+                {genre == "masculino"
+                  ? muscleMassTable.masculino[muscleMassLevel]
+                  : muscleMassTable.feminino[muscleMassLevel]}
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="text-xs text-muted-foreground">Bad genetics</div>

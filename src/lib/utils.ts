@@ -23,7 +23,7 @@ export const handleError = (error: unknown) => {
 };
 
 
-interface getMuscleMassProps {
+export interface getMuscleMassProps {
   height: number;
   age_start: number;
   genre: string;
@@ -110,3 +110,4 @@ export const getMuscleMass = ({height, age_start, genre}: getMuscleMassProps) =>
 
   return 5;
 }
+

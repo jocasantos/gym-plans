@@ -45,3 +45,25 @@ export const navLinks = [
     },
 
   }
+
+  export const muscleMassTable = {
+    masculino: {
+      0: "8 Kg",
+      1: "9-10 Kg",
+      2: "11-12 Kg",
+      3: "13-14 Kg",
+      4: "15-16 Kg",
+      5: "17-18 Kg",
+      6: "19 Kg",
+        
+    },
+    feminino: {
+      0: "4 Kg",
+      1: "5 Kg",
+      2: "6-7 Kg",
+      3: "8 Kg",
+      4: "9-10 Kg",
+      5: "11 Kg",
+      6: "12 Kg",
+    }
+  }
