@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Table,
@@ -8,6 +10,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useRouter } from "next/navigation";
 
 // Define the type for the simulation data
 interface Simulation {
@@ -31,6 +34,11 @@ interface SimulsTableProps {
 }
 
 const SimulsTable = ({ simulations }: SimulsTableProps) => {
+  const router = useRouter();
+  const handleRowClick = (id: string) => {
+    router.push(`/simulacoes/${id}`);
+  };
+
   return (
     <Table>
       <TableCaption>Lista das simulações realizadas.</TableCaption>
@@ -39,18 +47,24 @@ const SimulsTable = ({ simulations }: SimulsTableProps) => {
           <TableHead className="w-[120px]">Data</TableHead>
           <TableHead className="text-center">Idade</TableHead>
           <TableHead className="text-center">Género</TableHead>
-          <TableHead className="text-center">Idade_inicio</TableHead>
+          <TableHead className="text-center">Altura</TableHead>
+          <TableHead className="text-center">Idade_início</TableHead>
           <TableHead className="text-right">Download</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {simulations.map((simulation) => (
-          <TableRow key={simulation._id}>
+          <TableRow
+            onClick={() => handleRowClick(simulation._id)}
+            key={simulation._id}
+            style={{ cursor: "pointer" }}
+          >
             <TableCell className="font-medium">
               {simulation.createdAt?.toString().slice(0, 10)}
             </TableCell>
             <TableCell className="text-center">{simulation.age}</TableCell>
             <TableCell className="text-center">{simulation.genre}</TableCell>
+            <TableCell className="text-center">{simulation.height}</TableCell>
             <TableCell className="text-center">
               {simulation.start_age}
             </TableCell>
