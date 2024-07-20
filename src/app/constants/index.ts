@@ -71,3 +71,5 @@ export const navLinks = [
       6: "12 Kg",
     }
   }
+
+  export const creditFee = -1;

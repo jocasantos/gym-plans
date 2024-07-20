@@ -28,11 +28,7 @@ const DashboardPage = async () => {
       )}
 
       <div className="mb-8" />
-      {true ? (
-        <MuscleForm userId={user._id} creditBalance={user.creditBalance} />
-      ) : (
-        <ShowPage /> // Show this component after form submission
-      )}
+      <MuscleForm userId={user._id} creditBalance={user.creditBalance} />
     </>
   );
 };

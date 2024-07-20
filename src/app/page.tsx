@@ -40,8 +40,8 @@ const Home = () => {
             no ginásio?
           </h1>
           <p className="mt-6 text-sm max-w-prose text-muted-foreground sm:text-lg">
-            Regista-te agora e realiza uma simulação personalizada para saber
-            quanta massa muscular podes ganhar naturalmente.
+            Regista-te agora e realiza uma simulação personalizada GRÁTIS para
+            saber quanta massa muscular podes ganhar naturalmente.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-16">
             <Link href="/entrar" className={buttonVariants()}>

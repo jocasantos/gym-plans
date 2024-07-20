@@ -15,7 +15,7 @@ const UserSchema = new Schema({
     firstName: {type: String, required: true},
     lastName: {type: String, required: true},
     photo: {type: String, required: true},
-    creditBalance: {type: Number, default: 0},
+    creditBalance: {type: Number, default: 1},
 })
 
 const User = models?.User || model('User', UserSchema);

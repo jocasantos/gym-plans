@@ -22,9 +22,12 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "../ui/input";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { addSimul } from "@/lib/actions/simul.actions";
 import { useRouter } from "next/dist/client/components/navigation";
+import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
+import { updateCredits } from "@/lib/actions/user.actions";
+import { creditFee } from "@/app/constants";
 
 const formSchema = z
   .object({
@@ -76,6 +79,7 @@ const formSchema = z
 const MuscleForm = ({ userId, creditBalance }: MuscleFormProps) => {
   const [simul, setSimul] = useState(null);
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -108,16 +112,14 @@ const MuscleForm = ({ userId, creditBalance }: MuscleFormProps) => {
     } catch (error) {
       console.error(error);
     }
-  }
 
-  /*   startTransition(async () => {
-    await updateCredits(userId, creditFee)
-  })
-} */
+    updateCredits(userId, creditFee);
+  }
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
+        {creditBalance < Math.abs(creditFee) && <InsufficientCreditsModal />}
         <FormField
           control={form.control}
           name="idade"

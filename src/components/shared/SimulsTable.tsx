@@ -47,9 +47,8 @@ const SimulsTable = ({ simulations }: SimulsTableProps) => {
           <TableHead className="w-[120px]">Data</TableHead>
           <TableHead className="text-center">Idade</TableHead>
           <TableHead className="text-center">Género</TableHead>
-          <TableHead className="text-center">Altura</TableHead>
+          <TableHead className="text-center">Altura(cm)</TableHead>
           <TableHead className="text-center">Idade_início</TableHead>
-          <TableHead className="text-right">Download</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -67,9 +66,6 @@ const SimulsTable = ({ simulations }: SimulsTableProps) => {
             <TableCell className="text-center">{simulation.height}</TableCell>
             <TableCell className="text-center">
               {simulation.start_age}
-            </TableCell>
-            <TableCell className="text-right">
-              <a href={"/"}>PDF</a>
             </TableCell>
           </TableRow>
         ))}
