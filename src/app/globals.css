@@ -208,9 +208,11 @@
 
 
   /* =====  SHADCN OVERRIDES */
-  /* .sheet-content button {
-    @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important;
-  } */
+  .button {
+    @apply py-4 px-6 flex-center gap-3 rounded-full p-16-semibold focus-visible:ring-offset-0 focus-visible:ring-transparent !important;
+  }
+
+   
 
   /* =====  CLERK OVERRIDES */
 .cl-userButtonBox {
