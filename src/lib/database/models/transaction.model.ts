@@ -17,6 +17,10 @@ const TransactionSchema = new Schema({
   credits: {
     type: Number,
   },
+  plan: {
+    type: String,
+    required: true,
+  },
   buyer: {
     type: Schema.Types.ObjectId,
     ref: "User",
