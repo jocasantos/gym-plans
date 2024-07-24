@@ -1,6 +1,6 @@
 "use client";
 
-import { navLinks } from "@/app/constants";
+import { navLinks } from "@/constants";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";

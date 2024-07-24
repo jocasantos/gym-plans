@@ -27,7 +27,7 @@ import { addSimul } from "@/lib/actions/simul.actions";
 import { useRouter } from "next/dist/client/components/navigation";
 import { InsufficientCreditsModal } from "./InsufficientCreditsModal";
 import { updateCredits } from "@/lib/actions/user.actions";
-import { creditFee } from "@/app/constants";
+import { creditFee } from "@/constants";
 
 const formSchema = z
   .object({

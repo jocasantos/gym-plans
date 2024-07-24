@@ -1,4 +1,4 @@
-import { pageHeader } from "@/app/constants";
+import { pageHeader } from "@/constants";
 import Header from "@/components/shared/Header";
 import SimulsTable from "@/components/shared/SimulsTable";
 

@@ -73,3 +73,81 @@ export const navLinks = [
   }
 
   export const creditFee = -1;
+
+  export const plans = [
+    {
+      _id: 1,
+      name: "Grátis",
+      icon: "/assets/icons/free-plan.svg",
+      price: 0,
+      credits: 1,
+      inclusions: [
+        {
+          label: "1 Crédito Grátis",
+          isIncluded: true,
+        },
+        {
+          label: "Acesso Básico aos Serviços",
+          isIncluded: true,
+        },
+        {
+          label: "Suporte ao Cliente Prioritário",
+          isIncluded: false,
+        },
+        {
+          label: "Atualizações Prioritárias",
+          isIncluded: false,
+        },
+      ],
+    },
+    {
+      _id: 2,
+      name: "Pacote Pro",
+      icon: "/assets/icons/free-plan.svg",
+      price: 1,
+      credits: 5,
+      inclusions: [
+        {
+          label: "5 Créditos",
+          isIncluded: true,
+        },
+        {
+          label: "Acesso Completo aos Serviços",
+          isIncluded: true,
+        },
+        {
+          label: "Suporte ao Cliente Prioritário",
+          isIncluded: false,
+        },
+        {
+          label: "Atualizações Prioritárias",
+          isIncluded: false,
+        },
+      ],
+    },
+    {
+      _id: 3,
+      name: "Pacote Premium",
+      icon: "/assets/icons/free-plan.svg",
+      price: 2,
+      credits: 20,
+      inclusions: [
+        {
+          label: "20 Créditos",
+          isIncluded: true,
+        },
+        {
+          label: "Acesso Completo aos Serviços",
+          isIncluded: true,
+        },
+        {
+          label: "Suporte ao Cliente Prioritário",
+          isIncluded: false,
+        },
+        {
+          label: "Atualizações Prioritárias",
+          isIncluded: false,
+        },
+      ],
+    },
+  ];

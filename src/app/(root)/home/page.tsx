@@ -1,4 +1,4 @@
-import { pageHeader } from "@/app/constants";
+import { pageHeader } from "@/constants";
 import Header from "@/components/shared/Header";
 import MuscleForm from "@/components/shared/MuscleForm";
 import ShowPage from "@/components/shared/ShowPage";

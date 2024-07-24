@@ -9,7 +9,7 @@ import {
 } from "../ui/card";
 import { Progress } from "../ui/progress";
 import { getMuscleMass } from "@/lib/utils";
-import { muscleMassTable } from "@/app/constants";
+import { muscleMassTable } from "@/constants";
 
 interface ShowPageProps {
   simul: {
