@@ -117,7 +117,7 @@ export const navLinks = [
         },
         {
           label: "Suporte ao Cliente Prioritário",
-          isIncluded: false,
+          isIncluded: true,
         },
         {
           label: "Atualizações Prioritárias",
@@ -142,11 +142,11 @@ export const navLinks = [
         },
         {
           label: "Suporte ao Cliente Prioritário",
-          isIncluded: false,
+          isIncluded: true,
         },
         {
           label: "Atualizações Prioritárias",
-          isIncluded: false,
+          isIncluded: true,
         },
       ],
     },
