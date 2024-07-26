@@ -7,7 +7,6 @@ import { getAllSimulations } from "@/lib/actions/simul.actions";
 import { auth } from "@clerk/nextjs/server";
 
 const Profile = async ({ searchParams }: SearchParamProps) => {
-  const page = Number(searchParams?.page) || 1;
   const { userId } = auth();
 
   if (!userId) redirect("/sign-in");

@@ -1,4 +1,5 @@
-import { Coins, Home, User } from "lucide-react"
+
+import { ArrowDownToLine, CheckCircle, Leaf } from "lucide-react";
 
 export const navLinks = [
     {
@@ -149,5 +150,26 @@ export const navLinks = [
           isIncluded: true,
         },
       ],
+    },
+  ];
+
+  export const perks = [
+    {
+      name: "Resultados Imediatos",
+      Icon: ArrowDownToLine,
+      description:
+        "Responda a algumas perguntas rápidas e obtenha seus resultados instantaneamente.",
+    },
+    {
+      name: "Baseado na Ciência",
+      Icon: CheckCircle,
+      description:
+        "Os nossos resultados são fundamentados em diversos estudos científicos, garantido precisão e confiança.",
+    },
+    {
+      name: "Sem Esteróides",
+      Icon: Leaf,
+      description:
+        "Os resultados do teste são baseados no pressuposto de que o atleta nunca utilizou anabolizantes.",
     },
   ];

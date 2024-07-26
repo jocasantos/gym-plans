@@ -6,6 +6,7 @@ import { Schema, model, models } from "mongoose";
     email: string;
     firstName: string;
     lastName: string;
+    photo: string;
     creditBalance: number;
 } */
 
