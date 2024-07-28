@@ -1,7 +1,7 @@
 import { pageHeader } from "@/constants";
 import Header from "@/components/shared/Header";
 import MuscleForm from "@/components/shared/MuscleForm";
-import ShowPage from "@/components/shared/ShowPage";
+
 import { getUserById } from "@/lib/actions/user.actions";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";

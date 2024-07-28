@@ -55,10 +55,14 @@ export async function POST(req: Request) {
   // Get the ID and type
   const { id } = evt.data;
   const eventType = evt.type;
+  console.log(`Processing event: ${eventType} for user ID: ${id}`);
+  console.log('Webhook body:', body)
 
   // CREATE
   if (eventType === "user.created") {
+    console.log('userId:', evt.data.id)
     const { id, email_addresses, image_url, first_name, last_name} = evt.data;
+    console.log("Received user.created event with data:", evt.data);
 
     const user = {
       clerkId: id,
@@ -72,6 +76,8 @@ export async function POST(req: Request) {
 
     const newUser = await createUser(user);
 
+    console.log("User created in database:", newUser);
+
 
     // Set public metadata
     if (newUser) {
@@ -80,6 +86,7 @@ export async function POST(req: Request) {
           userId: newUser._id,
         },
       });
+      console.log("Updated user metadata in Clerk");
     }
 
     return NextResponse.json({ message: "OK", user: newUser });
@@ -87,7 +94,7 @@ export async function POST(req: Request) {
 
   // UPDATE
   if (eventType === "user.updated") {
-    const { id, image_url, first_name, last_name, username } = evt.data;
+    const { id, image_url, first_name, last_name } = evt.data;
 
     const user = {
       firstName: first_name || "",

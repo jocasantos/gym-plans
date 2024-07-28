@@ -2,9 +2,10 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 
 import Header from "@/components/shared/Header";
-import { getUserById } from "@/lib/actions/user.actions";
+import { createUser, getUserById } from "@/lib/actions/user.actions";
 import { getAllSimulations } from "@/lib/actions/simul.actions";
 import { auth } from "@clerk/nextjs/server";
+import { Button } from "@/components/ui/button";
 
 const Profile = async ({ searchParams }: SearchParamProps) => {
   const { userId } = auth();

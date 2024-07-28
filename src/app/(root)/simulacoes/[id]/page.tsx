@@ -2,10 +2,13 @@ import ShowPage from "@/components/shared/ShowPage";
 import SimulText from "@/components/shared/SimulText";
 import { getSimulById } from "@/lib/actions/simul.actions";
 import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import React from "react";
 
 const SimulationPage = async ({ params: { id } }: SearchParamProps) => {
   const { userId } = auth();
+
+  if (!userId) redirect("/sign-in");
 
   const simul = await getSimulById(id);
 

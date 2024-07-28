@@ -3,8 +3,14 @@ import Header from "@/components/shared/Header";
 import SimulsTable from "@/components/shared/SimulsTable";
 
 import { getAllSimulations } from "@/lib/actions/simul.actions";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 const SimulationsPage = async () => {
+  const { userId } = auth();
+
+  if (!userId) redirect("/sign-in");
+
   const simuls = await getAllSimulations();
 
   return (
