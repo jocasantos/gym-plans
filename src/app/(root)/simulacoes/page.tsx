@@ -5,13 +5,15 @@ import SimulsTable from "@/components/shared/SimulsTable";
 import { getAllSimulations } from "@/lib/actions/simul.actions";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import { getUserById } from "@/lib/actions/user.actions";
 
 const SimulationsPage = async () => {
   const { userId } = auth();
 
   if (!userId) redirect("/sign-in");
 
-  const simuls = await getAllSimulations();
+  const user = await getUserById(userId);
+  const simuls = await getAllSimulations(user);
 
   return (
     <>

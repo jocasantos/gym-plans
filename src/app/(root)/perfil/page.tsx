@@ -38,7 +38,7 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
           <p className="p-14-medium md:p-16-medium">SIMULAÇÕES REALIZADAS</p>
           <div className="mt-4 flex items-center gap-4">
             <Image
-              src="/assets/icons/photo.svg"
+              src="/assets/icons/stars.svg"
               alt="coins"
               width={50}
               height={50}

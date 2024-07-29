@@ -100,11 +100,11 @@ export async function getSimulById(simul_id: string) {
 
 
 // GET ALL SIMULATIONS
-export async function getAllSimulations() {
+export async function getAllSimulations(author_id: string) {
     try {
         await connectToDatabase();
 
-        const simulations = await populateUser(Simul.find())
+        const simulations = await populateUser(Simul.find({author: author_id}))
         .sort({ createdAt: -1 });
 
         
