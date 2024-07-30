@@ -13,7 +13,7 @@ const Profile = async ({ searchParams }: SearchParamProps) => {
   if (!userId) redirect("/sign-in");
 
   const user = await getUserById(userId);
-  const simulacoes = await getAllSimulations();
+  const simulacoes = await getAllSimulations(user);
 
   return (
     <>
