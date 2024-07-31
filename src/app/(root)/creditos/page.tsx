@@ -5,10 +5,11 @@ import { redirect } from "next/navigation";
 import Header from "@/components/shared/Header";
 import { Button } from "@/components/ui/button";
 
-import { getUserById } from "@/lib/actions/user.actions";
+import { getUserById, updateCredits } from "@/lib/actions/user.actions";
 import Checkout from "@/components/shared/Checkout";
 import { plans } from "@/constants";
 import { auth } from "@clerk/nextjs/server";
+import ButtonFree from "@/components/shared/ButtonFree";
 
 const Credits = async () => {
   const { userId } = auth();
@@ -58,9 +59,7 @@ const Credits = async () => {
               </ul>
 
               {plan.name === "Grátis" ? (
-                <Button variant="outline" className="credits-btn">
-                  Grátis
-                </Button>
+                <ButtonFree user={user} />
               ) : (
                 <SignedIn>
                   <Checkout
